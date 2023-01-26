@@ -1,0 +1,13 @@
+<div *ngIf="vehicle">
+  <div
+    class="item-cont"
+    [defaultImage]="'assets/images/wheel.PNG'"
+    [lazyLoad]="vehicle.photo"
+    (click)="onClick()"
+  >
+    <div class="vehicle-data">
+      <p class="vehicle-name">{{ vehicle.brand }}</p>
+      <p class="vehicle-model">{{ vehicle.model }}</p>
+    </div>
+  </div>
+</div>

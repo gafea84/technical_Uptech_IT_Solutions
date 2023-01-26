@@ -1,0 +1,40 @@
+.recommendation-title {
+  color: white;
+  font-size: 2rem;
+  margin: 20px;
+}
+
+.bg {
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url("src/assets/images/home_bg.jpg");
+  height: 80vh;
+  position: relative;
+}
+app-filter {
+  position: absolute;
+  top: 20%;
+  left: 10%;
+}
+
+.recommended-vehicles {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 460px) {
+  .bg {
+    display: none;
+  }
+  app-filter {
+    position: initial;
+  }
+  .recommended-vehicles {
+    overflow: auto;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+  }
+}

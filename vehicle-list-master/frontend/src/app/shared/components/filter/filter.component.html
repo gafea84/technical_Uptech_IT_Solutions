@@ -1,0 +1,116 @@
+<div class="filter-cont">
+  <div [className]="isFirstQuery ? 'form-cont' : 'isList'">
+    <div class="row-center">
+      <div class="custom-control custom-checkbox">
+        <input
+          type="checkbox"
+          class="custom-control-input"
+          id="car"
+          [checked]="selectedTypes[0].isSelected"
+          (change)="selectedTypes[0].isSelected = !selectedTypes[0].isSelected"
+        />
+        <label class="custom-control-label" for="car">Carro</label>
+      </div>
+
+      <div class="custom-control custom-checkbox">
+        <input
+          type="checkbox"
+          class="custom-control-input"
+          id="moto"
+          [checked]="selectedTypes[1].isSelected"
+          (change)="selectedTypes[1].isSelected = !selectedTypes[1].isSelected"
+        />
+        <label class="custom-control-label" for="moto">Moto</label>
+      </div>
+
+      <div class="custom-control custom-checkbox">
+        <input
+          type="checkbox"
+          class="custom-control-input"
+          id="truck"
+          [checked]="selectedTypes[2].isSelected"
+          (change)="selectedTypes[2].isSelected = !selectedTypes[2].isSelected"
+        />
+        <label class="custom-control-label" for="truck">Camion</label>
+      </div>
+    </div>
+
+    <div class="row-center wrap" *ngIf="showMoreFilters">
+      <div class="custom-select-cont">
+        <label for="brand" *ngIf="!selectedBrand">Marca</label>
+        <select
+          class="browser-default custom-select"
+          [(ngModel)]="selectedBrand"
+          id="brand"
+        >
+          <option value="Marca" disabled selected>Marca</option>
+          <option [value]="brand" *ngFor="let brand of brands">{{
+            brand
+          }}</option>
+        </select>
+      </div>
+
+      <div class="custom-select-cont ">
+        <label for="model" *ngIf="!selectedModel">Modelo</label>
+        <select
+          class="browser-default custom-select"
+          [(ngModel)]="selectedModel"
+          id="model"
+        >
+          <option value="Modelo" disabled selected>Modelo</option>
+          <option [value]="model" *ngFor="let model of models">{{
+            model
+          }}</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="row-center wrap" *ngIf="showMoreFilters">
+      <div class="custom-select-cont">
+        <label for="brand" *ngIf="!selectedSize">Tamaño</label>
+        <select
+          class="browser-default custom-select"
+          [(ngModel)]="selectedSize"
+          id="size"
+        >
+          <option value="Tamaño" disabled selected>Tamaño</option>
+          <option [value]="size" *ngFor="let size of sizes">{{ size }}</option>
+        </select>
+      </div>
+
+      <div class="custom-select-cont">
+        <label for="color" *ngIf="!selectedColor">Color</label>
+        <select
+          class="browser-default custom-select"
+          [(ngModel)]="selectedColor"
+          id="color"
+        >
+          <option value="Color" disabled selected>Color</option>
+          <option [value]="color" *ngFor="let color of colors">{{
+            color
+          }}</option>
+        </select>
+      </div>
+    </div>
+    <div class="buttons-cont">
+      <div
+        class="btn btn-outline more-filters-btn"
+        *ngIf="!isFirstQuery"
+        (click)="toggleShowMoreFilters()"
+      >
+        <p>
+          {{ !showMoreFilters ? "+ Filtros" : "- filtros" }}
+        </p>
+      </div>
+
+      <div class="btn btn-filled search-btn" (click)="search()">
+        <p *ngIf="!isFirstQuery">
+          Filtrar
+        </p>
+        <p *ngIf="isFirstQuery">
+          Buscar
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

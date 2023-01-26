@@ -1,0 +1,15 @@
+<a routerLink="">Volver</a>
+
+<app-filter [isFirstQuery]="false"></app-filter>
+
+<div class="list-cont">
+  <app-vehicle-item
+    *ngFor="let vehicle of vehicles"
+    [vehicle]="vehicle"
+  ></app-vehicle-item>
+</div>
+
+<span *ngIf="errors || !vehicles.length">
+  <p>{{ errors?.status ? errors?.error : "Revisa tu conexión" }}</p>
+  <div class="nothing-found-img"></div>
+</span>

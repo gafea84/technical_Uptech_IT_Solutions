@@ -1,0 +1,14 @@
+<div class="bg"></div>
+<app-filter [isFirstQuery]="true"></app-filter>
+
+<p class="recommendation-title">Recomendados</p>
+
+<div
+  class="recommended-vehicles"
+  *ngIf="recommendations$ | async as recommendations"
+>
+  <app-vehicle-item
+    *ngFor="let vehicle of recommendations"
+    [vehicle]="vehicle"
+  ></app-vehicle-item>
+</div>

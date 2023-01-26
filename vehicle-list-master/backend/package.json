@@ -1,0 +1,27 @@
+{
+  "name": "car_list_backend",
+  "version": "1.0.0",
+  "description": "backend of a carlist web app for a technical test",
+  "main": "server.js",
+  "dependencies": {
+    "dotenv": "^8.1.0",
+    "lodash": "^4.17.15",
+    "restify": "^8.4.0",
+    "restify-cors-middleware": "^1.1.1"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-arrays": "^2.0.0",
+    "chai-http": "^4.3.0",
+    "cross-env": "^6.0.3",
+    "mocha": "^6.2.1",
+    "nodemon": "^1.19.3"
+  },
+  "scripts": {
+    "test": "cross-env NODE_ENV=test mocha './tests/*.test.js'",
+    "dev": "cross-env NODE_ENV=development DB_LOCATION='vehicles.db.json' nodemon server.js ",
+    "start": "cross-env NODE_ENV=production DB_LOCATION='vehicles.db.json' node server.js "
+  },
+  "author": "David Alejandro Quinonez",
+  "license": "ISC"
+}

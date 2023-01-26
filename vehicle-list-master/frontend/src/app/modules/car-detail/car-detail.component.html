@@ -1,0 +1,51 @@
+<a routerLink="/list">Volver</a>
+<div *ngIf="vehicle$ | async as vehicle; else notVehicle">
+  <div class="top-cont">
+    <div
+      class="vehicle-image"
+      [defaultImage]="'assets/images/wheel.PNG'"
+      [lazyLoad]="vehicle.photo"
+    ></div>
+    <div class="whole-metadata">
+      <div class="important-data">
+        <p class="vehicle-brand">
+          {{ vehicle.brand }}
+        </p>
+        <p class="vehicle-model">
+          {{ vehicle.model }}
+        </p>
+      </div>
+      <div class="data">
+        <p class="vehicle-color">
+          {{ vehicle.color }}
+        </p>
+        <p class="vehicle-size">
+          {{ vehicle.size }}
+        </p>
+      </div>
+      <p class="desc">
+        Lorem ipsum pon de riaisdoai isojdioa ioasujdiojasodjaisod asdop asdasf
+        asdasfasddfasdwadawe
+      </p>
+    </div>
+  </div>
+
+  <p class="recommendation-title">Recomendados</p>
+
+  <div
+    class="recommended-vehicles"
+    *ngIf="recommendations$ | async as recommendations"
+  >
+    <app-vehicle-item
+      *ngFor="let vehicle of recommendations"
+      [vehicle]="vehicle"
+    ></app-vehicle-item>
+  </div>
+</div>
+
+<ng-template #notVehicle>
+  <p class="err-msg">
+    Parece que hubo un error encontrando este vehículo, vuleve a intentar más
+    tarde
+  </p>
+</ng-template>
